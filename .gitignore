@@ -1,0 +1,8 @@
+.DS_Store
+.idea
+data/
+logs/
+*logs*/
+*feature/
+vgg16_cifar10_feature/
+*.pth
