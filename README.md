@@ -22,20 +22,18 @@ To overcome these limitations, we propose **NeMo**, a scalable and more generali
        |--- configs.py                  :  setting the path
        |--- modular_trainer.py          :  training modular CNN models
        |--- modularizer.py              :  modularizing trained modular CNN models and then reusing modules on sub-tasks
-       |--- standard_trainer.py         :  training CNN models using the standard training method 
+       |--- standard_trainer.py         :  training CNN models using the standard training method
+       |--- script_train.py             :  script to run the training process
+       |--- script_modularizer.py       :  script to run the modularizing process
        |--- ...
        |--- models/                    
             |--- utils_v2.py            :  the implementation of mask generator 
             |--- vgg.py                 :  the standard vgg16 model
             |--- vgg_masked.py          :  the modular vgg16 model, i.e., the standard vgg16 model with mask generators
-            |--- ...
+            |--- ...                    :  Note that ViT and DeiT models replace linear layers and add generators directly, do not need to apply with this part
        |--- modules_arch/
-            |--- vgg_module_v2.py       :  the vgg16 module which retains only relevant kernels and removes mask generators.
+            |--- vit_module_HF.py       :  the ViT module which retains only relevant neurons.
             |--- ...
-       |--- exp_cnnsplitter_reusing/
-            |--- reuse_modules.py       :  reusing modules published by CNNSplitter on sub-tasks
-            |--- calculate_cohesion.py  :  calculating the cohesion of modules
-            |--- ...                    :  published by CNNSplitter
        |--- ...
 ```
 
@@ -81,15 +79,10 @@ python calculate_cohesion.py --model simcnn --dataset cifar10
 
 ## Supplementary experimental results
 ### Discussion of the effect of threshold on modularizing the modular ResNet18-CIFAR10 model.
-The value of threshold directly affects the results of modularizing and module reuse. 
-As shown in the figure below, as the threshold increases from 0.1 to 0.9, the kernel retention rate of the modules gradually decreases, from 37.36% to 24.74%. 
-A larger threshold makes each module tend to retain convolutional kernels that are required by all samples of the corresponding category, leading to an increase in cohesion from 0.8572 to 0.9437 and a decrease in coupling from 0.3594 to 0.2412. 
+TBC
 
 
 
 ### Discussion of the effect of threshold on reusing the ResNet18-CIFAR10's modules.
-Regarding the effect on module reuse, the figure below presents the performance of the modules in terms of kernel retention rate and accuracy on the 3-class classification sub-task. 
-As the threshold increases, the KRR of the module decreases, from 72.57% to 50.51%. 
-Nonetheless, the decrease of KRR has a negligible impact on the accuracy of the module, which only drops from 97.77% to 97.23%. 
-The experimental results also demonstrate that our default settings are appropriate.
+TBC
 
