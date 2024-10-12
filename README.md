@@ -1,6 +1,7 @@
-# MwT_ext
+# NeMo:a Neuron-Level Modularizing-While-Training Approach for Decomposing DNN Models.
 ## Abstract
--
+As deep neural networks (DNNs) are increasingly integrated into modern software systems, their construction costs pose significant challenges. While model reuse can reduce training costs, indiscriminately reusing entire models can lead to substantial inference overhead. DNN modularization, inspired by software engineering, offers a solution. The "modularizing-while-training" (MwT) paradigm, which incorporates modularization during training, is more effective than post-training modularization. However, existing MwT methods focus on small-scale convolutional neural networks (CNNs) at the convolutional kernel level and struggle with diverse and large-scale models, especially Transformers.
+To overcome these limitations, we propose **NeMo**, a scalable and more generalizable MwT approach. NeMo operates at the neuron level—the fundamental building block of all DNNs—ensuring applicability to Transformers and various DNN architectures. We design a contrastive learning-based modular training method with an effective composite loss function, making it scalable to large models. Experiments on two Transformer models and four CNNs across two popular classification datasets demonstrate NeMo's superiority over the state-of-the-art MwT method, with an average increase of 1.72% in module classification accuracy and a 58.10% reduction in module size. Our findings show that NeMo effectively modularizes both CNNs and large-scale Transformers, offering a promising approach for scalable and generalizable DNN modularization.
 ## Requirements
 + fvcore 0.1.5.post20221221<br>
 + numpy 1.23.1<br>
