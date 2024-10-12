@@ -15,7 +15,7 @@ To overcome these limitations, we propose **NeMo**, a scalable and more generali
 <br>
 
 ## Structure of the directories
-```powershell
+```shell
   |--- README.md                        :  the user guidance
   |--- data/                            :  the experimental data
   |--- src/                             :  the source code of our work
