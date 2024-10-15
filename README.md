@@ -43,23 +43,39 @@ To overcome these limitations, we propose **NeMo**, a scalable and more generali
 ### Downloading experimental data
 The following sections describe how to reproduce the experimental results in our paper. 
 1. We provide the resulting models trained by standard training and modular models trained by modular training<br>
-One can download `data/` from [here](https://mega.nz/file/1T8ExJrL#uUr2Jh-j1NN0m575mojKDPiDvn0aZVw_tRIeq9GbhXE) and then move it to `MwT/`.<br>
+One can download `data/` from [here](https://mega.nz/file/1T8ExJrL#uUr2Jh-j1NN0m575mojKDPiDvn0aZVw_tRIeq9GbhXE) and then move it to `NeMo/`.<br>
 The datasets will be downloaded automatically by PyTorch when running our project. 
 2. Modify `self.root_dir` in `src/configs.py`.
 
 ### Modular training, modularizing, and module reuse
-1. Training a modular VGG16 model.
+1. Training a modular ViT model with NeMo, you should first modify the file script_trainNeurContra.py, and then:
 ```commandline
-python modular_trainer.py --model vgg16 --dataset cifar10 --lr_model 0.05 --alpha 0.5 --beta 1.5 --batch_size 128
+python script_trainNeurContra.py
 ```
 
-2. Modularizing the modular VGG16 model and reusing the resulting modules on a sub-task containing "class 0" and "class 1".
+2. Training a modular VGG16 model with NeMo, you should first modify the file script_trainContra.py, and then:
 ```commandline
-python modularizer.py --model vgg16 --dataset cifar10 --lr_model 0.05 --alpha 0.5 --beta 1.5 --batch_size 128 --target_classes 0 1
+python script_trainContra.py
 ```
+
+3. Modularizing the modular VGG16 model and reusing the resulting modules on a sub-task, you should first modify the file script_modularizer_contra.py, and then:
+```commandline
+python script_modularizer_contra.py
+```
+
+4. Modularizing the modular ViT model and reusing the resulting modules on a sub-task, you should first modify the file script_modularizer_vit.py, and then:
+```commandline
+python script_modularizer_vit.py
+```
+
+Note that the script continuously modularize the modules from 2 to 10 categories. If you don't want this, please modify the script.
 
 ### Standard training
-1. Training a VGG16 model
+1. Training a ViT-small model
+```commandline
+python standard_trainer_vit.py --model vit_s --dataset cifar10 --lr_model 0.05 --batch_size 128
+```
+2. Training a VGG16 model
 ```commandline
 python standard_trainer.py --model vgg16 --dataset cifar10 --lr_model 0.05 --batch_size 128
 ```

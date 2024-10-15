@@ -12,7 +12,7 @@ from dataset_loader import load_cifar10, load_svhn
 
 def get_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--model', type=str, choices=['vit_s', 'vit'], required=True)
+    parser.add_argument('--model', type=str, choices=['vit_s'], required=True)
     parser.add_argument('--dataset', type=str, choices=['cifar10', 'svhn'], required=True)
 
     parser.add_argument('--lr_model', type=float, default=0.05)
