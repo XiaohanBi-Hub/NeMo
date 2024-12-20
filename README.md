@@ -80,19 +80,6 @@ python standard_trainer_vit.py --model vit_s --dataset cifar10 --lr_model 0.05 -
 python standard_trainer.py --model vgg16 --dataset cifar10 --lr_model 0.05 --batch_size 128
 ```
 
-### Reusing modules from CNNSplitter
-1. Downloading the published modules at CNNSplitter's project webpage.
-2. Modifying `root_dir` in `src/exp_cnnsplitter_reusing/global_configure.py`
-3. Modifying `dataset_dir` in `src/exp_cnnsplitter_reusing/reuse_modules.py`
-4. Reusing SimCNN-CIFAR10's modules on a sub-task containing "class 0" and "class 1"
-```commandline
-python reuse_modules.py --model simcnn --dataset cifar10 --target_classes 0 1
-```
-5. Calculating the cohesion of modules
-```commandline
-python calculate_cohesion.py --model simcnn --dataset cifar10
-```
-
 ## Supplementary experimental results
 ### Discussion of the effect of threshold on modularizing the modular ResNet18-CIFAR10 model.
 TBC
