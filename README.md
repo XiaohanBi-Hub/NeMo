@@ -43,7 +43,7 @@ To overcome these limitations, we propose **NeMo**, a scalable and more generali
 ### Downloading experimental data
 The following sections describe how to reproduce the experimental results in our paper. 
 1. We provide the resulting models trained by standard training and modular models trained by modular training<br>
-One can download `data/` from [here](https://mega.nz/file/1T8ExJrL#uUr2Jh-j1NN0m575mojKDPiDvn0aZVw_tRIeq9GbhXE) and then move it to `NeMo/`.<br>
+One can download `data/` from [here](https://pan.quark.cn/s/b05460d0d9ed) and then move it to `NeMo/`.<br>
 The datasets will be downloaded automatically by PyTorch when running our project. 
 2. Modify `self.root_dir` in `src/configs.py`.
 
